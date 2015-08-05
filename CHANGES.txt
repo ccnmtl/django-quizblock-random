@@ -1,0 +1,4 @@
+0.1.0 - 2015-08-05
+==================
+
+* initial release. code just split out from teachrecovery.
