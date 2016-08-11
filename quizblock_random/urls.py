@@ -1,4 +1,4 @@
-from django.conf.urls import patterns
+from django.conf.urls import url
 from .views import (
     EditQuizRandomView,
     AddQuestionToQuizRandomView,
@@ -8,25 +8,24 @@ from .views import (
     DeleteAnswerRandomView,
     DeleteQuestionRandomView
 )
-urlpatterns = patterns(
-    'quizblock_random.views',
-    (r'^edit_quiz/(?P<pk>\d+)/$', EditQuizRandomView.as_view(),
-     {}, 'edit-quiz-random'),
-    (r'^edit_quiz/(?P<pk>\d+)/add_question/$',
-     AddQuestionToQuizRandomView.as_view(),
-     {}, 'add-question-to-quiz-random'),
-    (r'^edit_question/(?P<pk>\d+)/$', EditQuestionRandomView.as_view(), {},
-     'edit-question-random'),
-    (r'^edit_question/(?P<pk>\d+)/add_answer/$',
-     AddAnswerToQuestionRandomView.as_view(), {},
-     'add-answer-to-question-random'),
-    (r'^delete_question/(?P<pk>\d+)/$', DeleteQuestionRandomView.as_view(), {},
-     'delete-question-random'),
-    (r'^delete_answer/(?P<pk>\d+)/$', DeleteAnswerRandomView.as_view(),
-     {}, 'delete-answer-random'),
-    (r'^edit_answer/(?P<pk>\d+)/$', EditAnswerRandomView.as_view(),
-     {}, 'edit-answer-random'),
-)
+urlpatterns = [
+    url(r'^edit_quiz/(?P<pk>\d+)/$', EditQuizRandomView.as_view(),
+        {}, 'edit-quiz-random'),
+    url(r'^edit_quiz/(?P<pk>\d+)/add_question/$',
+        AddQuestionToQuizRandomView.as_view(),
+        {}, 'add-question-to-quiz-random'),
+    url(r'^edit_question/(?P<pk>\d+)/$', EditQuestionRandomView.as_view(), {},
+        'edit-question-random'),
+    url(r'^edit_question/(?P<pk>\d+)/add_answer/$',
+        AddAnswerToQuestionRandomView.as_view(), {},
+        'add-answer-to-question-random'),
+    url(r'^delete_question/(?P<pk>\d+)/$', DeleteQuestionRandomView.as_view(),
+        {}, 'delete-question-random'),
+    url(r'^delete_answer/(?P<pk>\d+)/$', DeleteAnswerRandomView.as_view(),
+        {}, 'delete-answer-random'),
+    url(r'^edit_answer/(?P<pk>\d+)/$', EditAnswerRandomView.as_view(),
+        {}, 'edit-answer-random'),
+]
 
 '''
 urlpatterns = patterns(
