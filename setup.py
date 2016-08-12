@@ -27,7 +27,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="django-quizblock-random",
-    version="0.1.0",
+    version="0.2.0",
     author="James Davis",
     author_email="jed.davis13@gmail.com",
     url="https://github.com/ccnmtl/django-quizblock-random",
