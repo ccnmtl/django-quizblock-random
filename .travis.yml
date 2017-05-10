@@ -1,16 +1,21 @@
 language: python
 python:
-  - "2.7"
+- '2.7'
 env:
-  - DJANGO="Django>=1.8.0,<1.9.0"
-
-# command to install dependencies
+- DJANGO="Django>=1.8.0,<1.9.0"
 install:
-  - pip install -q $DJANGO --use-mirrors
-  - pip install -q -r test_reqs.txt --use-mirrors
-
-# command to run tests
+- pip install -q $DJANGO --use-mirrors
+- pip install -q -r test_reqs.txt --use-mirrors
 script:
-  - python runtests.py
+- python runtests.py
 notifications:
   slack: ccnmtl:GizSNscLWJLldjQrffB8mwgm
+deploy:
+  provider: pypi
+  user: ctlpypi
+  password:
+    secure: vZraRtK0T07c2+Dl4wzOhtujFlmtjovV/H5O7/D1EUWO27rfeqpmjWCGIusGFiehqDaTrJKQr5BBL/hogz8HupM2HF79wfW22aOjaVxdUdVyCaWEQWJUJtXP/l0veMtai2I2YenC/ASicm+B9Le1qn90xcjwgIlNLugpug/fPVEiQzvbvr58A7+tKDbkHQuC554m1Roh79BTanFyTTsNGihwOkZ1e7KfopRJMVgQwNkfamTHFvGWhQup23P0MVEcRxf9y6Jm7U6mEBnDVCrlaajiv+tRcRlUogelDReOpnJAu/LAMgMj2RQt36nakDvupjbSNNnC3KOaL1WvZMeKaRCRBhRxnI1CTI288B+dsrUKDRnhT5ZGgrESGfhCjoN06KJsuYuC3oCVrrAcghlh4qNMjQm6GSjO70UyLDsFXb1X0gqr9KIlFcJbtz0/PlhY6YBBKMjflbsOnPKC7bo1PfSSgzpxZQf/b55FmmLCbWhrHnVG6qGgxM20t1O/ynGjZf3kcYuaU9QbUf5Xja0epMNMxdAX1UMssqlyRi1Nc/dwUc8Pkm4FxIAa+dt+CAguNyPDMXAdFY/0QUsLb4GJCqm3B1OphHW2etLpNaeaCpmV7dvyUd8/gxk4cYvwS9bu0plopMjyOY7XwL0tkKzyCzYXWhpNNJ7rR4EGQa5qABk=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: ccnmtl/django-quizblock-random
