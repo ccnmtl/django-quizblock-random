@@ -5,9 +5,9 @@ $ ./ve/bin/pip install Django==1.8.1
 $ ./ve/bin/pip install -r test_reqs.txt
 $ ./ve/bin/python runtests.py
 """
+import django
 from django.conf import settings
 from django.core.management import call_command
-import django
 
 
 def main():
@@ -46,10 +46,8 @@ def main():
                 }
             }
     )
-    try:
-        django.setup()
-    except AttributeError:
-        pass
+
+    django.setup()
 
     # Fire off the tests
     call_command('jenkins', '--enable-coverage')
