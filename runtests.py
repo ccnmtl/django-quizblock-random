@@ -26,9 +26,6 @@ def main():
         ),
         TEST_RUNNER='django.test.runner.DiscoverRunner',
         MIDDLEWARE_CLASSES=[],
-        JENKINS_TASKS = (
-            'django_jenkins.tasks.with_coverage',
-        ),
         PROJECT_APPS = [
             'quizblock_random',
         ],
@@ -55,7 +52,7 @@ def main():
         pass
 
     # Fire off the tests
-    call_command('jenkins')
+    call_command('jenkins', '--enable-coverage')
 
 if __name__ == '__main__':
     main()
